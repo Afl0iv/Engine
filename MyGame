@@ -1,0 +1,19 @@
+
+public class MyGame {
+	
+	private Game game;
+	
+	
+	public MyGame(){
+		game = new Game(800,600, "Aflo Studios");
+		game. getScreenFactory().showScreen(new MyScreen.game.getScreenFactory()));
+	}
+	
+	
+	public static void man(String[] args){
+		new MyGame();
+		
+	}
+	
+	
+}
