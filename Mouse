@@ -1,0 +1,42 @@
+import java.awt.geom.Point2D;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.JComponent;
+ 
+public class Mouse implements MouseMotionListener{
+
+   private Point2D.Float point;
+   
+    public Mouse() {
+    }
+
+   public void mouseDragged(MouseEvent e) {
+   }
+   
+      public void mouseMoved(MouseEvent e) {
+         JComponent c = (JComponent) e.getSource();
+         this.point = IsoUtil.getColRow(e.getX(),e.getY(),44,44);   
+         c.repaint();
+      }
+   
+      public void paint(Graphics g){
+         int tmpX = (int)point.getX() * 22;
+         int tmpY = (int)point.getX() * 22;
+         tmpX -= (int)point.getY() * 22;
+         tmpY += (int)point.getY() * 22;
+         if(point.getY() < 0){
+            tmpY -= 22;
+         }else{           
+            tmpX -= 22;
+         }
+         paintRaute(g,tmpX, tmpY);
+      }    
+         
+    private void paintRaute(Graphics g, int x, int y){
+       g.setColor(Color.black);
+       g.drawLine(x+(44 / 2), y, x+44, y+(44/2));
+       g.drawLine(x+44, y+(44/2), x+(44 / 2), y+44);
+       g.drawLine(x+(44 / 2), y+44, x, y+(44/2));
+       g.drawLine(x, y+(44/2), x+(44 / 2), y);
+    }         
+}
