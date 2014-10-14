@@ -1,0 +1,31 @@
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+
+public class KeyBoardListener implements KeyListener{
+
+	private Boolean[] keys = new boolean[256];
+	
+	
+	@Override
+	public void keyPressed(KeyEvent event){
+		keys[event.getKeyCode{}] = true; 
+		// key [85] = true; 		
+	}
+	
+	@Override 
+	public void KeyReleased(KeyEvent event){
+		keys[event.getKeycode{}] = false; 
+		
+	}
+	
+	@Override 
+	public void KeyTyped(keyEvent event){
+		return keys[key];
+	}
+	public void boolean isKeyReleased(int key){
+		
+	}
+	public void boolean isKeyReleased(int key){
+		return !keys[key];
+	}
+}
